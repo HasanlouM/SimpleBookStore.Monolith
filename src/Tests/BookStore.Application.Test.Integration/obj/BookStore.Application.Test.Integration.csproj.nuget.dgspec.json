@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Tests\\BookStore.Application.Test.Integration\\BookStore.Application.Test.Integration.csproj": {}
+  },
+  "projects": {
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj",
+        "projectName": "BookStore.Application.Contract",
+        "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj",
+        "packagesPath": "C:\\Users\\m.hasanloo\\.nuget\\packages\\",
+        "outputPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\m.hasanloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\BookStore.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\BookStore.Application.csproj",
+        "projectName": "BookStore.Application",
+        "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\BookStore.Application.csproj",
+        "packagesPath": "C:\\Users\\m.hasanloo\\.nuget\\packages\\",
+        "outputPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\m.hasanloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj": {
+                "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj"
+              },
+              "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj": {
+                "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj"
+              },
+              "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj": {
+                "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj",
+        "projectName": "BookStore.Domain",
+        "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj",
+        "packagesPath": "C:\\Users\\m.hasanloo\\.nuget\\packages\\",
+        "outputPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\m.hasanloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj",
+        "projectName": "BookStore.Persistence.EF",
+        "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj",
+        "packagesPath": "C:\\Users\\m.hasanloo\\.nuget\\packages\\",
+        "outputPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\m.hasanloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj": {
+                "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Domain\\BookStore.Domain\\BookStore.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Tests\\BookStore.Application.Test.Integration\\BookStore.Application.Test.Integration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Tests\\BookStore.Application.Test.Integration\\BookStore.Application.Test.Integration.csproj",
+        "projectName": "BookStore.Application.Test.Integration",
+        "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Tests\\BookStore.Application.Test.Integration\\BookStore.Application.Test.Integration.csproj",
+        "packagesPath": "C:\\Users\\m.hasanloo\\.nuget\\packages\\",
+        "outputPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Tests\\BookStore.Application.Test.Integration\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\m.hasanloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\BookStore.Application.csproj": {
+                "projectPath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application\\BookStore.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

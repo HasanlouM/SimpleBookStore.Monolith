@@ -1,0 +1,12 @@
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\bin\Debug\net6.0\BookStore.Domain.deps.json
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\bin\Debug\net6.0\BookStore.Domain.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\bin\Debug\net6.0\BookStore.Domain.pdb
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.csproj.AssemblyReference.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.AssemblyInfoInputs.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.AssemblyInfo.cs
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.csproj.CoreCompileInputs.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\refint\BookStore.Domain.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\BookStore.Domain.pdb
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Domain\BookStore.Domain\obj\Debug\net6.0\ref\BookStore.Domain.dll

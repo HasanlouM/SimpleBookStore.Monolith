@@ -1,0 +1,15 @@
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\bin\Debug\net6.0\BookStore.Persistence.EF.deps.json
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\bin\Debug\net6.0\BookStore.Persistence.EF.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\bin\Debug\net6.0\BookStore.Persistence.EF.pdb
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\bin\Debug\net6.0\BookStore.Domain.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\bin\Debug\net6.0\BookStore.Domain.pdb
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.csproj.AssemblyReference.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.GeneratedMSBuildEditorConfig.editorconfig
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.AssemblyInfoInputs.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.AssemblyInfo.cs
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.csproj.CoreCompileInputs.cache
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.csproj.CopyComplete
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\refint\BookStore.Persistence.EF.dll
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\BookStore.Persistence.EF.pdb
+D:\M\Learning\Code\SimpleBookStore.Monolith\src\Infrastructure\BookStore.Persistence.EF\obj\Debug\net6.0\ref\BookStore.Persistence.EF.dll
