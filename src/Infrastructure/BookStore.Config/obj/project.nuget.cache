@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "vVg8qS/zfq2ivTVzmSiiPQ/h/LSZuR4UotUvXAuUWBPeek7w4Gkd8Kw42swNY4XEllntIzxBF5vNHcq5pmc5Ng==",
+=======
+  "dgSpecHash": "9VDJ2w3sTBFnPL/rsVXCnFcl91wgXYBcDo6IvFrNBz4Wbtkp+mwdEZSX3cF5VqYM8Zyko041Cym+AKqNNs6NuA==",
+>>>>>>> d18a179e4703cfd274aa01523751146034abf64b
   "success": true,
   "projectFilePath": "D:\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Config\\BookStore.Config.csproj",
   "expectedPackageFiles": [],
