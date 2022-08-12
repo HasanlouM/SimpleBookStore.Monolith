@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j7nixUOw0LhKVvE3YVKwlquUgWRvvjSBlykcVeNhYyMvPKNNJmcRHpp0slb80l/SNzY85tSGM5a9uWTSBXMePw==",
+  "dgSpecHash": "f7gO8U8aVBj7QhtOKcpoQftm37uniH2iW36gBP8U81H8P2Ed16MwZLMk/FfgMx3SHB9/u0ONPEYzuVfFvRcRjQ==",
   "success": true,
-  "projectFilePath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj",
+  "projectFilePath": "D:\\SimpleBookStore.Monolith\\src\\Application\\BookStore.Application.Contract\\BookStore.Application.Contract.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

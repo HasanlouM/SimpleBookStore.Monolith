@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "970WyN65AwER1ghqRX2CYPs7XRCmKJHPrkklVnI2bW1Kaj4STucKTzCQMBCNgKDHS7ndJPj176tNEkoHXsyxYQ==",
+  "dgSpecHash": "TUh+XP64SzdNVN979X2ermpbY+DEAeEAXH6Ndq2ZpW12HAmuTafazfWPSvOx8aVfYGuoEJWzpHgrSeFKMw71Bw==",
   "success": true,
-  "projectFilePath": "D:\\M\\Learning\\Code\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj",
+  "projectFilePath": "D:\\SimpleBookStore.Monolith\\src\\Infrastructure\\BookStore.Persistence.EF\\BookStore.Persistence.EF.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
