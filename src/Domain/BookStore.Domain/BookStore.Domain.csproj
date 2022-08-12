@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Package\SimpleFramework.Domain\SimpleFramework.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "BookStore.Domain/1.0.0": {
+        "dependencies": {
+          "SimpleFramework.Domain": "1.0.0"
+        },
         "runtime": {
           "BookStore.Domain.dll": {}
+        }
+      },
+      "SimpleFramework.Domain/1.0.0": {
+        "runtime": {
+          "SimpleFramework.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "BookStore.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SimpleFramework.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
