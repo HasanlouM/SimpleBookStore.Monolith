@@ -1,1 +1,0 @@
-# SimpleBookStore.Monolith
