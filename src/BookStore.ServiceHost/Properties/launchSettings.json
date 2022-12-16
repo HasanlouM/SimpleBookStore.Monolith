@@ -1,18 +1,20 @@
 ﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:57453",
-      "sslPort": 44386
+      "applicationUrl": "http://localhost:31073",
+      "sslPort": 44346
     }
   },
   "profiles": {
-    "BookStore.ServiceHost": {
+    "ServiceHost": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7262;http://localhost:5262",
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:5000;http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,6 +22,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

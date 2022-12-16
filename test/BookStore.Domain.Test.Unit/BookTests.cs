@@ -10,7 +10,7 @@ namespace BookStore.Domain.Test.Unit
         {
             var book = new Book(1, "BookExample", "1020",
                 "982563","BookAuthor", 1000, 2022,
-                "BookImage", "Book description");
+                new byte [1024], "Book description");
 
             book.CategoryId.Should().Be(1);
             book.Name.Should().Be("BookExample");
