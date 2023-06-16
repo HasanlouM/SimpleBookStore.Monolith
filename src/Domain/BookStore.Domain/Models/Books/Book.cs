@@ -2,7 +2,7 @@
 using Common.Domain;
 using Common.Domain.Core;
 
-namespace BookStore.Domain.Books.Model
+namespace BookStore.Domain.Models.Books
 {
     public class Book : AggregateRoot<int>
     {

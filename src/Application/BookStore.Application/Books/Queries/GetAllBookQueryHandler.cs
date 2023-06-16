@@ -1,5 +1,5 @@
 ﻿using BookStore.Application.Contract.Books.Queries;
-using BookStore.Domain.Books.Model;
+using BookStore.Domain.Models.Books;
 using BookStore.Persistence.EF;
 using Common.Application;
 using Common.Application.Utils;

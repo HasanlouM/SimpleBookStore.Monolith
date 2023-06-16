@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using BookStore.Domain.Books.Model;
+using BookStore.Domain.Models.Books;
 using BookStore.Persistence.EF;
 using BookStore.Persistence.EF.Repositories.Books;
 using Common.Persistence.EF;

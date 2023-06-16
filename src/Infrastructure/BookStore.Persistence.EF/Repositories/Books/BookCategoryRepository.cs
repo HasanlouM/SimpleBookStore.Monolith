@@ -1,4 +1,4 @@
-﻿using BookStore.Domain.Books.Model;
+﻿using BookStore.Domain.Models.Books;
 
 namespace BookStore.Persistence.EF.Repositories.Books;
 

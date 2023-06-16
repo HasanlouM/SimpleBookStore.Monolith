@@ -1,4 +1,4 @@
-﻿namespace BookStore.Domain.Books.Model;
+﻿namespace BookStore.Domain.Models.Books;
 
 public interface IBookCategoryRepository
 {

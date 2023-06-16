@@ -1,4 +1,4 @@
-﻿using BookStore.Domain.Books.Model;
+﻿using BookStore.Domain.Models.Books;
 using Common.Persistence.EF;
 using Microsoft.EntityFrameworkCore;
 
