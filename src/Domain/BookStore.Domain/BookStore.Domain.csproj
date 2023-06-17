@@ -25,4 +25,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Inventories\" />
+  </ItemGroup>
+
 </Project>

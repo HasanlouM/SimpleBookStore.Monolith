@@ -1,6 +1,5 @@
 ﻿using BookStore.Application.Contract.Books.Commands;
 using BookStore.Application.Contract.Books.Queries;
-using BookStore.Domain.Model;
 using BookStore.Domain.Models.Books;
 using Common.Application;
 using Common.Application.Utils;
@@ -25,8 +24,8 @@ namespace BookStore.Application.Books.Commands
         public async Task<BookQueryModel> HandleAsync(
             DefineBookCommand command, CancellationToken cancellation = default)
         {
-            var model = new Book(command.CategoryId, command.Name, command.Code, command.Isbn,
-                command.Author, command.Price, command.PublishYear, command.Image.ToByte(), command.Description);
+            var model = new Book(command.CategoryId, command.Title, command.Publisher, command.Isbn,
+                command.Author, command.Price, command.PublicationDate, command.Image?.ToByte()?? null, command.Description);
 
             var book = await _repository.Add(model, cancellation);
             await _uow.SaveChanges(cancellation);
@@ -34,12 +33,12 @@ namespace BookStore.Application.Books.Commands
             return new BookQueryModel
             {
                 Id = book.Id,
-                Name = book.Name,
-                Code = book.Code,
+                Title = book.Title,
+                Publisher = book.Publisher,
                 Author = book.Author,
                 Isbn = book.Isbn,
                 Price = book.Price,
-                PublishYear = book.PublishYear,
+                PublicationDate = book.PublicationDate,
                 Description = book.Description,
                 Image = Convert.ToBase64String(book.Image)
             };

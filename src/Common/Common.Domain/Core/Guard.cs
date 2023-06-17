@@ -91,6 +91,14 @@ namespace Common.Domain.Core
             }
         }
 
+        public static void NotNullOrDefault(DateOnly? source, string name)
+        {
+            if (source == null || source == default(DateOnly))
+            {
+                throw new NotNullException(name);
+            }
+        }
+
         public static void NotNullOrDefault(DateTimeOffset? source, string name)
         {
             if (source == null || source == default(DateTimeOffset))
@@ -103,7 +111,7 @@ namespace Common.Domain.Core
         {
             if (source is null)
             {
-                throw new NotFoundException(name);
+                throw new NotNullException(name);
             }
         }
 

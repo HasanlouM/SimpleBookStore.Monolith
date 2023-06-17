@@ -14,9 +14,9 @@ public class BookCategoryMapping : IEntityTypeConfiguration<BookCategory>
         builder.Property(b => b.Id)
             .ValueGeneratedOnAdd();
 
-        builder.Property(b => b.Title)
+        builder.Property(b => b.Name)
             .IsRequired()
-            .HasMaxLength(200);
+            .HasMaxLength(100);
 
         builder.Ignore(c => c.UncommittedEvents);
     }

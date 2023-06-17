@@ -70,15 +70,6 @@ namespace BookStore.Domain.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code of book.
-        /// </summary>
-        public static string Book_Code {
-            get {
-                return ResourceManager.GetString("Book_Code", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Image of book.
         /// </summary>
         public static string Book_Image {
@@ -97,15 +88,6 @@ namespace BookStore.Domain.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name of book.
-        /// </summary>
-        public static string Book_Name {
-            get {
-                return ResourceManager.GetString("Book_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Price of book.
         /// </summary>
         public static string Book_Price {
@@ -115,11 +97,29 @@ namespace BookStore.Domain.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PublishYear of book.
+        ///   Looks up a localized string similar to PublicationDate of book.
         /// </summary>
-        public static string Book_PublishYear {
+        public static string Book_PublicationDate {
             get {
-                return ResourceManager.GetString("Book_PublishYear", resourceCulture);
+                return ResourceManager.GetString("Book_PublicationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publisher of book.
+        /// </summary>
+        public static string Book_Publisher {
+            get {
+                return ResourceManager.GetString("Book_Publisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title of book.
+        /// </summary>
+        public static string Book_Title {
+            get {
+                return ResourceManager.GetString("Book_Title", resourceCulture);
             }
         }
         
@@ -133,11 +133,11 @@ namespace BookStore.Domain.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title of book category.
+        ///   Looks up a localized string similar to Name of book category.
         /// </summary>
-        public static string BookCategory_Title {
+        public static string BookCategory_Name {
             get {
-                return ResourceManager.GetString("BookCategory_Title", resourceCulture);
+                return ResourceManager.GetString("BookCategory_Name", resourceCulture);
             }
         }
     }

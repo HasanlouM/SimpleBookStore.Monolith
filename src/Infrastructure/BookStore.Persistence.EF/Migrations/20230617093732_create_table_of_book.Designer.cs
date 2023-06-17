@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Persistence.EF.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20221216123334_Create_Table_Book")]
-    partial class CreateTableBook
+    [Migration("20230617093732_create_table_of_book")]
+    partial class createtableofbook
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace BookStore.Persistence.EF.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookStore.Domain.Books.Model.Book", b =>
+            modelBuilder.Entity("BookStore.Domain.Models.Books.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,18 +35,13 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)");
-
-                    b.Property<DateTime>("CreateAt")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Deleted")
@@ -62,47 +57,23 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.Property<string>("Isbn")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(10, 2)
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("PublishYear")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("PublicationDate")
+                        .HasColumnType("date");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("Books", "store");
-                });
-
-            modelBuilder.Entity("BookStore.Domain.Books.Model.BookCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Publisher")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -111,12 +82,41 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Books", "store");
+                });
+
+            modelBuilder.Entity("BookStore.Domain.Models.Books.BookCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
                     b.ToTable("BookCategories", "store");
                 });
 
-            modelBuilder.Entity("BookStore.Domain.Books.Model.Book", b =>
+            modelBuilder.Entity("BookStore.Domain.Models.Books.Book", b =>
                 {
-                    b.HasOne("BookStore.Domain.Books.Model.BookCategory", null)
+                    b.HasOne("BookStore.Domain.Models.Books.BookCategory", null)
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.NoAction)

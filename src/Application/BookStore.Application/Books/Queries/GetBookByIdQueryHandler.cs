@@ -24,14 +24,14 @@ public class GetBookByIdQueryHandler :
                         where !book.Deleted && book.Id.Equals(query.Id)
                         select new BookQueryModel
                         {
-                            Category = category.Title,
+                            Category = category.Name,
                             Id = book.Id,
-                            Name = book.Name,
-                            Code = book.Code,
+                            Title = book.Title,
+                            Publisher = book.Publisher,
                             Author = book.Author,
                             Isbn = book.Isbn,
                             Price = book.Price,
-                            PublishYear = book.PublishYear,
+                            PublicationDate = book.PublicationDate,
                             Description = book.Description,
                             Image = Convert.ToBase64String(book.Image)
                         };

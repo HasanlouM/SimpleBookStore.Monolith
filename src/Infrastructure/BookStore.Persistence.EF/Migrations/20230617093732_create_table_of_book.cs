@@ -5,30 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookStore.Persistence.EF.Migrations
 {
-    public partial class CreateTableBook : Migration
+    /// <inheritdoc />
+    public partial class createtableofbook : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
-                name: "store");
-
-            migrationBuilder.CreateTable(
-                name: "BookCategories",
-                schema: "store",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookCategories", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Books",
                 schema: "store",
@@ -37,14 +19,14 @@ namespace BookStore.Persistence.EF.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Code = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
-                    Isbn = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Publisher = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    PublicationDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Isbn = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
-                    PublishYear = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -72,10 +54,6 @@ namespace BookStore.Persistence.EF.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Books",
-                schema: "store");
-
-            migrationBuilder.DropTable(
-                name: "BookCategories",
                 schema: "store");
         }
     }

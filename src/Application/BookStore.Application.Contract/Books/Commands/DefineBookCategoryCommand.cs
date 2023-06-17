@@ -5,7 +5,7 @@ namespace BookStore.Application.Contract.Books.Commands;
 
 public class DefineBookCategoryCommand : ICommand
 {
-    public string Title { get; set; }
+    public string Name { get; set; }
 }
 
 public class DefineBookCategoryCommandValidator
@@ -13,7 +13,7 @@ public class DefineBookCategoryCommandValidator
 {
     public DefineBookCategoryCommandValidator()
     {
-        RuleFor(cmd => cmd.Title)
+        RuleFor(cmd => cmd.Name)
             .NotEmpty();
     }
 }

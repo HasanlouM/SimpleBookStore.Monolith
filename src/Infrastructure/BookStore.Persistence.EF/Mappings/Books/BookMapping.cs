@@ -1,6 +1,8 @@
 ﻿using BookStore.Domain.Models.Books;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStore.Persistence.EF.Mappings.Books
 {
@@ -14,21 +16,24 @@ namespace BookStore.Persistence.EF.Mappings.Books
             builder.Property(b => b.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(b => b.Name)
+            builder.Property(b => b.Title)
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(b => b.Code)
+            builder.Property(b => b.Author)
+                .IsRequired()
+                .HasMaxLength(150);
+
+            builder.Property(b => b.Publisher)
                 .IsRequired().
-                HasMaxLength(4);
+                HasMaxLength(100);
+            
+            builder.Property(b => b.PublicationDate)
+                .IsRequired();
 
             builder.Property(b => b.Isbn)
                 .IsRequired()
-                .HasMaxLength(100);
-
-            builder.Property(b => b.Author)
-                .IsRequired()
-                .HasMaxLength(100);
+                .HasMaxLength(50);
 
             builder.Property(b => b.Image)
                 .IsRequired();

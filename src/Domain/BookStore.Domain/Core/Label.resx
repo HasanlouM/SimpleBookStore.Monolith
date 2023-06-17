@@ -120,14 +120,11 @@
   <data name="BookCategory" xml:space="preserve">
     <value>BookCategory</value>
   </data>
-  <data name="BookCategory_Title" xml:space="preserve">
-    <value>Title of book category</value>
+  <data name="BookCategory_Name" xml:space="preserve">
+    <value>Name of book category</value>
   </data>
   <data name="Book_Author" xml:space="preserve">
     <value>Author of book</value>
-  </data>
-  <data name="Book_Code" xml:space="preserve">
-    <value>Code of book</value>
   </data>
   <data name="Book_Image" xml:space="preserve">
     <value>Image of book</value>
@@ -135,13 +132,16 @@
   <data name="Book_Isbn" xml:space="preserve">
     <value>Isbn of book</value>
   </data>
-  <data name="Book_Name" xml:space="preserve">
-    <value>Name of book</value>
-  </data>
   <data name="Book_Price" xml:space="preserve">
     <value>Price of book</value>
   </data>
-  <data name="Book_PublishYear" xml:space="preserve">
-    <value>PublishYear of book</value>
+  <data name="Book_PublicationDate" xml:space="preserve">
+    <value>PublicationDate of book</value>
+  </data>
+  <data name="Book_Publisher" xml:space="preserve">
+    <value>Publisher of book</value>
+  </data>
+  <data name="Book_Title" xml:space="preserve">
+    <value>Title of book</value>
   </data>
 </root>

@@ -10,7 +10,8 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<BookStoreD
     {
         var options = new DbContextOptionsBuilder<BaseDbContext>();
         // TODO: read from args
-        options.UseSqlServer("Server=.\\SQLSERVER2019;Database=BookStore;User Id=sa;Password=Mm@SQL2019;trusted_connection=true;encrypt=false;");
+        //options.UseSqlServer("Server=.\\SQLSERVER2019;Database=BookStore;User Id=sa;Password=Mm@SQL2019;trusted_connection=true;encrypt=false;");
+        options.UseSqlServer("Data Source=192.168.33.85;Initial Catalog=Mojtaba_Test;UID=sa;PWD=Aa123456;Connect Timeout=999;MultipleActiveResultSets=True;Integrated Security=False;TrustServerCertificate=True;");
 
         return new BookStoreDbContext(options.Options);
     }

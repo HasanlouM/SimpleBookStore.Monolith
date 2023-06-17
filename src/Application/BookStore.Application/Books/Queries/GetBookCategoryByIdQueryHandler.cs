@@ -29,7 +29,7 @@ namespace BookStore.Application.Books.Queries
             return new BookCategoryQueryModel
             {
                 Id = category.Id,
-                Title = category.Title
+                Name = category.Name
             };
         }
     }

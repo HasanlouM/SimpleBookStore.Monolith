@@ -27,14 +27,14 @@ public class GetAllBookQueryHandler :
                             on book.CategoryId equals category.Id
                         select new BookQueryModel
                         {
-                            Category = category.Title,
+                            Category = category.Name,
                             Id = book.Id,
-                            Name = book.Name,
-                            Code = book.Code,
+                            Title = book.Title,
+                            Publisher = book.Publisher,
                             Author = book.Author,
                             Isbn = book.Isbn,
                             Price = book.Price,
-                            PublishYear = book.PublishYear,
+                            PublicationDate = book.PublicationDate,
                             Description = book.Description,
                             Image = Convert.ToBase64String(book.Image)
                         };
@@ -53,9 +53,9 @@ public class GetAllBookQueryHandler :
             exp = exp.And(b => b.CategoryId.Equals(query.CategoryId));
         }
 
-        if (!string.IsNullOrWhiteSpace(query.Name))
+        if (!string.IsNullOrWhiteSpace(query.Title))
         {
-            exp = exp.And(b => b.Name.Contains(query.Name));
+            exp = exp.And(b => b.Title.Contains(query.Title));
         }
 
         if (!string.IsNullOrWhiteSpace(query.Author))
@@ -63,14 +63,19 @@ public class GetAllBookQueryHandler :
             exp = exp.And(b => b.Author.Contains(query.Author));
         }
 
-        if (query.PublishYearFrom is > 0)
+        if (!string.IsNullOrWhiteSpace(query.Publisher))
         {
-            exp = exp.And(b => b.PublishYear >= query.PublishYearFrom);
+            exp = exp.And(b => b.Publisher.Contains(query.Publisher));
         }
 
-        if (query.PublishYearTo is > 0)
+        if (query.PublicationDateFrom != default)
         {
-            exp = exp.And(b => b.PublishYear <= query.PublishYearTo);
+            exp = exp.And(b => b.PublicationDate >= query.PublicationDateFrom);
+        }
+
+        if (query.PublicationDateTo != default)
+        {
+            exp = exp.And(b => b.PublicationDate <= query.PublicationDateTo);
         }
 
         if (query.PriceFrom is > 0)

@@ -6,14 +6,16 @@ namespace BookStore.Domain.Models.Books;
 
 public class BookCategory : AggregateRoot<int>
 {
-    public BookCategory(string title)
-    {
-        Guard.NotNullOrEmpty(title, Label.BookCategory_Title);
+    private BookCategory() { }
 
-        Title = title;
+    public BookCategory(string name)
+    {
+        Guard.NotNullOrEmpty(name, Label.BookCategory_Name);
+
+        Name = name;
         CreatedAt = DateTime.UtcNow;
     }
 
-    public string Title { get; private set; }
+    public string Name { get; private set; }
 
 }
