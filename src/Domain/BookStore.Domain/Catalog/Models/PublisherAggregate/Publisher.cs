@@ -27,11 +27,14 @@ namespace BookStore.Domain.Catalog.Models.PublisherAggregate
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public PublisherStatus Status { get; private set; }
-    }
 
-    public enum PublisherStatus : byte
-    {
-        Active = 1,
-        Inactive = 2,
+        public void Inactivate()
+        {
+            Status = PublisherStatus.Inactive;
+        }
+        public void Activate()
+        {
+            Status = PublisherStatus.Active;
+        }
     }
 }

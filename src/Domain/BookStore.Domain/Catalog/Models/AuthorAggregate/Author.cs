@@ -28,11 +28,15 @@ namespace BookStore.Domain.Catalog.Models.AuthorAggregate
         public string LastName { get; private set; }
         public string Bio { get; private set; }
         public AuthorStatus Status { get; private set; }
-    }
 
-    public enum AuthorStatus : byte
-    {
-        Active = 1,
-        Inactive = 2
+        public void Inactivate()
+        {
+            Status = AuthorStatus.Inactive;
+        }
+
+        public void Activate()
+        {
+            Status = AuthorStatus.Active;
+        }
     }
 }

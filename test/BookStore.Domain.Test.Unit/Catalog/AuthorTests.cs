@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Catalog.Models.AuthorAggregate;
+using BookStore.Domain.Test.Unit.Catalog.TestUtilities;
 using Common.Domain.Core.Exceptions;
 using FluentAssertions;
 
@@ -7,7 +8,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
     public class AuthorTests
     {
         [Fact]
-        public void define_an_author()
+        public void Define_an_author()
         {
             var author = new Author("Moji", "Hasanlou", "Moji's bio");
             author.FirstName.Should().Be("Moji");
@@ -17,12 +18,32 @@ namespace BookStore.Domain.Test.Unit.Catalog
             author.CreatedAt.Should().NotBe(default);
         }
 
-        [Fact]
-        public void defining_an_author_with_wrong_params_should_throw_an_exception()
+        [Theory]
+        [InlineData("Neal", "")]
+        [InlineData("", "Ford")]
+        public void Can_not_define_an_author_without_first_and_last_name(string firstName, string lastName)
         {
-            Action action = () => new Author("", "Hasanlou", "Moji's bio");
+            Action action = () => AuthorTestFactory.CreateWithFullName(firstName, lastName);
 
             action.Should().Throw<NotEmptyException>();
+        }
+
+        [Fact]
+        public void Inactive_an_author()
+        {
+            var author = AuthorTestFactory.CreateDummy();
+            author.Inactivate();
+
+            author.Status.Should().Be(AuthorStatus.Inactive);
+        }
+
+        [Fact]
+        public void Active_an_author()
+        {
+            var author = AuthorTestFactory.CreateDummy();
+            author.Activate();
+
+            author.Status.Should().Be(AuthorStatus.Active);
         }
     }
 }

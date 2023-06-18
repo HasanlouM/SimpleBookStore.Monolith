@@ -29,6 +29,7 @@ namespace BookStore.Domain.Catalog.Models.BookAggregate
             PublicationDate = publicationDate;
             Image = image;
             Description = description;
+            Status = BookStatus.Active;
             CreatedAt = DateTime.UtcNow;
         }
 
@@ -41,5 +42,16 @@ namespace BookStore.Domain.Catalog.Models.BookAggregate
         public decimal Price { get; private set; }
         public string Description { get; private set; }
         public byte[] Image { get; private set; }
+        public BookStatus Status { get; private set; }
+
+        public void Activate()
+        {
+            Status = BookStatus.Active;
+        }
+
+        public void Inactivate()
+        {
+            Status = BookStatus.Inactive;
+        }
     }
 }

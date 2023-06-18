@@ -1,5 +1,4 @@
-﻿using BookStore.Domain.Catalog.Models.AuthorAggregate;
-using BookStore.Domain.Catalog.Models.PublisherAggregate;
+﻿using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,7 +8,7 @@ public class PublisherConfiguration : IEntityTypeConfiguration<Publisher>
 {
     public void Configure(EntityTypeBuilder<Publisher> builder)
     {
-        builder.ToTable("Publishers", "ctlg")
+        builder.ToTable("Publishers", Constants.Schema.Catalog)
             .HasKey(b => b.Id);
 
         builder.Property(b => b.Id)
