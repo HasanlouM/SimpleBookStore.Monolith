@@ -1,9 +1,11 @@
-﻿using BookStore.Domain.Models.Books;
+﻿using BookStore.Domain.Catalog.Models.AuthorAggregate;
+using BookStore.Domain.Catalog.Models.BookAggregate;
+using BookStore.Domain.Catalog.Models.CategoryAggregate;
+using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using Common.Persistence.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using static BookStore.Persistence.EF.Mappings.Books.BookMapping;
 
 namespace BookStore.Persistence.EF
 {
@@ -15,7 +17,9 @@ namespace BookStore.Persistence.EF
         }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<BookCategory> BookCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

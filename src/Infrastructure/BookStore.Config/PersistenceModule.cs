@@ -1,7 +1,10 @@
 ﻿using Autofac;
-using BookStore.Domain.Models.Books;
+using BookStore.Domain.Catalog.Models.AuthorAggregate;
+using BookStore.Domain.Catalog.Models.BookAggregate;
+using BookStore.Domain.Catalog.Models.CategoryAggregate;
+using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using BookStore.Persistence.EF;
-using BookStore.Persistence.EF.Repositories.Books;
+using BookStore.Persistence.EF.Catalog.Repositories;
 using Common.Persistence.EF;
 using Microsoft.Extensions.Configuration;
 
@@ -21,8 +24,7 @@ namespace BookStore.Config
             builder.Register(CreateDbContext)
                 .InstancePerLifetimeScope();
 
-            RegisterRepositories(builder);
-
+            RegisterCatalogRepositories(builder);
         }
 
         private BookStoreDbContext CreateDbContext(IComponentContext arg)
@@ -30,7 +32,7 @@ namespace BookStore.Config
             return DbContextFactory.Create(_configuration.GetConnectionString("Default"));
         }
 
-        private static void RegisterRepositories(ContainerBuilder builder)
+        private static void RegisterCatalogRepositories(ContainerBuilder builder)
         {
             builder.RegisterType<BookStoreUnitOfWork>()
                 .As<IUnitOfWork>()
@@ -40,8 +42,16 @@ namespace BookStore.Config
                 .As<IBookRepository>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<BookCategoryRepository>()
-                .As<IBookCategoryRepository>()
+            builder.RegisterType<CategoryRepository>()
+                .As<ICategoryRepository>()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<AuthorRepository>()
+                .As<IAuthorRepository>()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<PublisherRepository>()
+                .As<IPublisherRepository>()
                 .InstancePerLifetimeScope();
         }
     }

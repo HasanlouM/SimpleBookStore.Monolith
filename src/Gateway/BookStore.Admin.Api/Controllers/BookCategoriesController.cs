@@ -1,5 +1,5 @@
-﻿using BookStore.Application.Contract.Books.Commands;
-using BookStore.Application.Contract.Books.Queries;
+﻿using BookStore.Application.Contract.Catalog.CategoryAggregate.Commands;
+using BookStore.Application.Contract.Catalog.CategoryAggregate.Queries;
 using Common.Api;
 using Common.Application;
 using FluentValidation;
@@ -11,23 +11,23 @@ namespace BookStore.Admin.Api.Controllers
     public class BookCategoriesController: MainController
     {
         private readonly ICommandBus _bus;
-        private readonly IValidator<DefineBookCategoryCommand> _validator;
+        private readonly IValidator<DefineCategoryCommand> _validator;
 
         public BookCategoriesController(
             ICommandBus bus, 
-            IValidator<DefineBookCategoryCommand> validator)
+            IValidator<DefineCategoryCommand> validator)
         {
             _bus = bus;
             _validator = validator;
         }
 
         [HttpPost("[action]")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(BookCategoryQueryModel))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CategoryQueryModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces("application/json")]
-        public async Task<ActionResult<BookCategoryQueryModel>> Define(
-            [FromBody] DefineBookCategoryCommand command, CancellationToken cancellation)
+        public async Task<ActionResult<CategoryQueryModel>> Define(
+            [FromBody] DefineCategoryCommand command, CancellationToken cancellation)
         {
             var validationResult = await _validator.ValidateAsync(command, cancellation);
             if (!validationResult.IsValid)
@@ -35,7 +35,7 @@ namespace BookStore.Admin.Api.Controllers
                 return Fail(StatusCodes.Status400BadRequest, validationResult.ToString());
             }
 
-            var category = await _bus.Dispatch<DefineBookCategoryCommand, BookCategoryQueryModel>(command);
+            var category = await _bus.Dispatch<DefineCategoryCommand, CategoryQueryModel>(command);
 
             if (category is null)
             {

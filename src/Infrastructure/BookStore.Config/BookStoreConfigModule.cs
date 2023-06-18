@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using BookStore.Application.Books.Commands;
+using BookStore.Admin.Api.Controllers;
+using BookStore.Application.Catalog.BookAggregate.Commands;
+using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
 using Common.Application;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
-using BookStore.Admin.Api.Controllers;
-using BookStore.Application.Contract.Books.Commands;
 using Module = Autofac.Module;
 
 namespace BookStore.Config
@@ -22,8 +22,16 @@ namespace BookStore.Config
         {
             RegisterHandlers(builder);
         }
+
         private static void RegisterHandlers(ContainerBuilder builder)
         {
+            #region Catalog
+
+            
+
+            #endregion
+
+
             builder.RegisterAssemblyTypes(GetAssemblyOfCommandHandlers())
                 .As(type => type.GetInterfaces().Where(interfaceType =>
                     interfaceType.IsClosedTypeOf(typeof(ICommandHandler<>))))

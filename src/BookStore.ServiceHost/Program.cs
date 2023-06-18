@@ -1,6 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using BookStore.Application.Contract.Books.Commands;
+using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
 using BookStore.Config;
 using Common.Api;
 using Common.Infrastructure;

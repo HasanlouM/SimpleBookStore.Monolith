@@ -1,4 +1,4 @@
-﻿using BookStore.Application.Contract.Books.Queries;
+﻿using BookStore.Application.Contract.Catalog.BookAggregate.Queries;
 using Common.Api;
 using Common.Application;
 using Microsoft.AspNetCore.Http;

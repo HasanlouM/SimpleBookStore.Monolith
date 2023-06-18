@@ -1,5 +1,5 @@
-﻿using BookStore.Application.Contract.Books.Commands;
-using BookStore.Application.Contract.Books.Queries;
+﻿using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
+using BookStore.Application.Contract.Catalog.BookAggregate.Queries;
 using Common.Api;
 using Common.Application;
 using FluentValidation;
