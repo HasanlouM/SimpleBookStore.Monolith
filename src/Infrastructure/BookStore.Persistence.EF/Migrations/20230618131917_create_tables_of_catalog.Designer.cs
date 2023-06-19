@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Persistence.EF.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20230618032124_create_tables_of_catalog")]
+    [Migration("20230618131917_create_tables_of_catalog")]
     partial class createtablesofcatalog
     {
         /// <inheritdoc />
@@ -112,6 +112,9 @@ namespace BookStore.Persistence.EF.Migrations
                     b.Property<int>("PublisherId")
                         .HasColumnType("int");
 
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -149,6 +152,9 @@ namespace BookStore.Persistence.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 

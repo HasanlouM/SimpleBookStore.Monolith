@@ -2,10 +2,12 @@ using BookStore.Application.Catalog.BookAggregate.Commands;
 using BookStore.Application.Catalog.BookAggregate.Queries;
 using BookStore.Application.Catalog.CategoryAggregate.Commands;
 using BookStore.Application.Catalog.CategoryAggregate.Queries;
+using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
 using BookStore.Application.Contract.Catalog.BookAggregate.Queries;
 using BookStore.Application.Contract.Catalog.CategoryAggregate.Commands;
 using BookStore.Application.Contract.Catalog.CategoryAggregate.Queries;
 using BookStore.Application.Test.Integration.Utils;
+using BookStore.Domain.Catalog.Models.AuthorAggregate;
 using BookStore.Persistence.EF.Catalog.Repositories;
 using Common.Persistence.EF;
 using FluentAssertions;
@@ -24,8 +26,9 @@ namespace BookStore.Application.Test.Integration.Catalog
         [Fact]
         public async Task define_a_book_category()
         {
-            var category = await AddCategory("test");
+            var category = await CreateCategory("test");
 
+            // To make sure data fetch from database not from memory
             DbContext.DetachAllEntities();
 
             var actualCategory = await GetCategoryById(category.Id);
@@ -38,17 +41,16 @@ namespace BookStore.Application.Test.Integration.Catalog
         [Fact]
         public async Task define_a_book()
         {
-            var category = await AddCategory("test");
+            var category = await CreateCategory("test");
 
             var command = DefineBookCommandBuilder
                 .New()
                 .WithCategory(category.Id)
                 .Build();
 
-            var repository = new BookRepository(DbContext);
-            var commandHandler = new DefineBookCommandHandler(_unitOfWork, repository);
-            var book = await commandHandler.HandleAsync(command, CancellationToken.None);
+            var book = await CreateBook(command);
 
+            // To make sure data fetch from database not from memory
             DbContext.DetachAllEntities();
 
             var actualBook = await GetBookById(book.Id);
@@ -58,7 +60,20 @@ namespace BookStore.Application.Test.Integration.Catalog
                 .BeEquivalentTo(book, a => a.Excluding(z => z.Category));
         }
 
-        private async Task<CategoryQueryModel> AddCategory(
+        private async Task<BookQueryModel> CreateBook(DefineBookCommand command)
+        {
+            var repository = new BookRepository(DbContext);
+            var commandHandler = new DefineBookCommandHandler(_unitOfWork, repository);
+            var book = await commandHandler.HandleAsync(command, CancellationToken.None);
+            return book;
+        }
+
+        //private async Task<Author> CreateAuthor()
+        //{
+
+        //}
+
+        private async Task<CategoryQueryModel> CreateCategory(
             string name)
         {
             var command = new DefineCategoryCommand

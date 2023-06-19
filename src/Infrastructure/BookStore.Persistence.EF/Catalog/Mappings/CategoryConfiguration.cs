@@ -9,7 +9,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     public void Configure(EntityTypeBuilder<Category> builder)
     {
         builder.ToTable("Categories", Constants.Schema.Catalog)
-            .HasKey(b => b.Id);
+            .HasKey(c => c.Id);
 
         builder.Property(b => b.Id)
             .ValueGeneratedOnAdd();
@@ -17,6 +17,8 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(b => b.Name)
             .IsRequired()
             .HasMaxLength(200);
+
+        builder.HasIndex(c => c.Name).IsUnique();
 
         builder.Ignore(c => c.UncommittedEvents);
     }

@@ -109,6 +109,9 @@ namespace BookStore.Persistence.EF.Migrations
                     b.Property<int>("PublisherId")
                         .HasColumnType("int");
 
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -146,6 +149,9 @@ namespace BookStore.Persistence.EF.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
