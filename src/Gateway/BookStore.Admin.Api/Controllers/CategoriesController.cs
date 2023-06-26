@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Admin.Api.Controllers
 {
-    public class BookCategoriesController: MainController
+    public class CategoriesController: MainController
     {
         private readonly ICommandBus _bus;
         private readonly IValidator<DefineCategoryCommand> _validator;
 
-        public BookCategoriesController(
+        public CategoriesController(
             ICommandBus bus, 
             IValidator<DefineCategoryCommand> validator)
         {
@@ -43,7 +43,7 @@ namespace BookStore.Admin.Api.Controllers
                     StatusCodes.Status500InternalServerError, "Operation has failed!");
             }
 
-            return Created($"api/{ApiVersion}/Books/{category?.Id}/{nameof(BookCategoriesQueryController.Get)}",
+            return Created($"api/{ApiVersion}/Books/{category?.Id}/{nameof(CategoriesQueryController.Get)}",
                 category);
         }
     }

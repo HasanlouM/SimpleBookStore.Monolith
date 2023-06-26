@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Admin.Api.Controllers
 {
-    public class BookCategoriesQueryController : MainController
+    public class CategoriesQueryController : MainController
     {
         private readonly IQueryBus _bus;
 
-        public BookCategoriesQueryController(IQueryBus bus)
+        public CategoriesQueryController(IQueryBus bus)
         {
             _bus = bus;
         }
