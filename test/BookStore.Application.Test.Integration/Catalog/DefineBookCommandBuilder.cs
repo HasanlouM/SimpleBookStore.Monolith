@@ -34,13 +34,13 @@ internal class DefineBookCommandBuilder
         return this;
     }
 
-    public DefineBookCommandBuilder WrittenBy(int authorId)
+    public DefineBookCommandBuilder WithAuthor(int authorId)
     {
         _authorId = authorId;
         return this;
     }
 
-    public DefineBookCommandBuilder PublishedBy(int publisherId)
+    public DefineBookCommandBuilder WithPublisher(int publisherId)
     {
         _publisherId = publisherId;
         return this;

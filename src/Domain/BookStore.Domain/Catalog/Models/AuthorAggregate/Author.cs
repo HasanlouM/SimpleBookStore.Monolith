@@ -28,6 +28,7 @@ namespace BookStore.Domain.Catalog.Models.AuthorAggregate
         public string LastName { get; private set; }
         public string Bio { get; private set; }
         public AuthorStatus Status { get; private set; }
+        public string FullName => $"{FirstName} {LastName}";
 
         public void Inactivate()
         {

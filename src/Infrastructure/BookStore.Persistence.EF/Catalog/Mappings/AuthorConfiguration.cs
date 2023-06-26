@@ -30,6 +30,7 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
             .IsRequired()
             .HasDefaultValue(AuthorStatus.Active);
 
+        builder.Ignore(c => c.FullName);
         builder.Ignore(c => c.UncommittedEvents);
     }
 }

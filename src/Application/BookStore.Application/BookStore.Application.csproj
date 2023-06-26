@@ -12,4 +12,9 @@
     <ProjectReference Include="..\BookStore.Application.Contract\BookStore.Application.Contract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Catalog\AuthorAggregate\Queries\" />
+    <Folder Include="Catalog\PublisherAggregate\Queries\" />
+  </ItemGroup>
+
 </Project>
