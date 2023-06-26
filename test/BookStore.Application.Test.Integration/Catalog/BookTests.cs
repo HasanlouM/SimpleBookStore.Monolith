@@ -18,7 +18,7 @@ namespace BookStore.Application.Test.Integration.Catalog
         }
 
         [Fact]
-        public async Task define_a_book()
+        public async Task Define_a_book()
         {
             var categoryCommand = new DefineCategoryCommand
             {
@@ -55,7 +55,7 @@ namespace BookStore.Application.Test.Integration.Catalog
             DbContext.DetachAllEntities();
 
             var actualBook = await new GetBookById(DbContext).Perform(book.Id);
-            
+
             actualBook.Should().NotBeNull();
             actualBook.Title.Should().Be(command.Title);
             actualBook.Isbn.Should().Be(command.Isbn);
