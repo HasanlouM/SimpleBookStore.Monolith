@@ -10,13 +10,6 @@ namespace BookStore.Application.Test.Integration.Catalog
 {
     public class BookTests : PersistTest
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-        public BookTests()
-        {
-            _unitOfWork = UnitOfWorkFactory.Create(DbContext);
-        }
-
         [Fact]
         public async Task Define_a_book()
         {
