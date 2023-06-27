@@ -88,6 +88,15 @@ namespace BookStore.Domain.Catalog.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CategoryId of book.
+        /// </summary>
+        public static string Book_Category {
+            get {
+                return ResourceManager.GetString("Book_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image of book.
         /// </summary>
         public static string Book_Image {

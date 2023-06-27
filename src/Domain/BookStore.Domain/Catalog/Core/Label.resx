@@ -126,6 +126,9 @@
   <data name="Book_Author" xml:space="preserve">
     <value>AuthorId of book</value>
   </data>
+  <data name="Book_Category" xml:space="preserve">
+    <value>CategoryId of book</value>
+  </data>
   <data name="Book_Image" xml:space="preserve">
     <value>Image of book</value>
   </data>

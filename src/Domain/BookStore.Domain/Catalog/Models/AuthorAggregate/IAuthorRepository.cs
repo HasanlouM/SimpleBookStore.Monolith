@@ -5,5 +5,6 @@
         Task<IEnumerable<Author>> GetAll(CancellationToken cancellation = default);
         Task<Author?> Get(int id, CancellationToken cancellation = default);
         Task<Author> Add(Author model, CancellationToken cancellation = default);
+        Task<bool> Exists(int id, CancellationToken cancellation = default);
     }
 }

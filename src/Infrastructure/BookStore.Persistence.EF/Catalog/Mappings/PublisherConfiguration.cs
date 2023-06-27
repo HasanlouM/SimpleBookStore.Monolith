@@ -34,6 +34,8 @@ public class PublisherConfiguration : IEntityTypeConfiguration<Publisher>
             .IsRequired()
             .HasDefaultValue(PublisherStatus.Active);
 
+        builder.HasIndex(c => c.Name).IsUnique();
+
         builder.Ignore(c => c.UncommittedEvents);
     }
 }

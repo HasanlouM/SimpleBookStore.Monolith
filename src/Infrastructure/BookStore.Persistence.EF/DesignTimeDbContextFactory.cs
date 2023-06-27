@@ -11,8 +11,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<BookStoreD
         var options = new DbContextOptionsBuilder<BaseDbContext>();
         // TODO: read from args
         options.UseSqlServer(
-            "Server=.\\SQLSERVER2019;Database=BookStore;User Id=sa;Password=Mm@SQL2019;TrustServerCertificate=True;");
-        //options.UseSqlServer("Data Source=;Initial Catalog=BookStore;UID=sa;PWD=Aa123456;Connect Timeout=999;MultipleActiveResultSets=True;Integrated Security=False;TrustServerCertificate=True;");
+        "Server=.\\SQLSERVER2019;Database=BookStore;User Id=sa;Password=Mm@SQL2019;TrustServerCertificate=True;");
 
         return new BookStoreDbContext(options.Options);
     }

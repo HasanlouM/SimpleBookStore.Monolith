@@ -32,7 +32,7 @@ public class GetBookByIdQueryHandler :
                             Id = book.Id,
                             Title = book.Title,
                             Publisher = publisher.Name,
-                            Author = $"{author.FirstName} {author.LastName}",
+                            Author = author.FullName,
                             Isbn = book.Isbn,
                             Price = book.Price,
                             PublicationDate = book.PublicationDate,
