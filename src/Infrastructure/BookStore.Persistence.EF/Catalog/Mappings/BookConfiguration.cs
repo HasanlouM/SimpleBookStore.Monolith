@@ -11,7 +11,7 @@ namespace BookStore.Persistence.EF.Catalog.Mappings
     {
         public void Configure(EntityTypeBuilder<Book> builder)
         {
-            builder.ToTable("Books", Constants.Schema.Catalog)
+            builder.ToTable("Book", Constants.Schema.Catalog)
                 .HasKey(b => b.Id);
 
             builder.Property(b => b.Id)

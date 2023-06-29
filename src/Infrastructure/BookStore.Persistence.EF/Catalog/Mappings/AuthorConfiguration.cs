@@ -8,7 +8,7 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 {
     public void Configure(EntityTypeBuilder<Author> builder)
     {
-        builder.ToTable("Authors", Constants.Schema.Catalog)
+        builder.ToTable("Author", Constants.Schema.Catalog)
             .HasKey(b => b.Id);
 
         builder.Property(b => b.Id)

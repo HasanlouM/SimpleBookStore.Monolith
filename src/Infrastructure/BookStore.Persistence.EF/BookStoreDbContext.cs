@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Catalog.Models.AuthorAggregate;
 using BookStore.Domain.Catalog.Models.BookAggregate;
 using BookStore.Domain.Catalog.Models.CategoryAggregate;
+using BookStore.Domain.Catalog.Models.InventoryAggregate;
 using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using Common.Persistence.EF;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace BookStore.Persistence.EF
         public DbSet<Category> Categories { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

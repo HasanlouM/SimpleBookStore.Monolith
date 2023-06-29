@@ -1,7 +1,7 @@
-using System.Transactions;
 using BookStore.Persistence.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Transactions;
 
 namespace BookStore.Application.Test.Integration.Utils;
 

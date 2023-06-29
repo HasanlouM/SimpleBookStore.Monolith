@@ -8,7 +8,7 @@ public class PublisherConfiguration : IEntityTypeConfiguration<Publisher>
 {
     public void Configure(EntityTypeBuilder<Publisher> builder)
     {
-        builder.ToTable("Publishers", Constants.Schema.Catalog)
+        builder.ToTable("Publisher", Constants.Schema.Catalog)
             .HasKey(b => b.Id);
 
         builder.Property(b => b.Id)
