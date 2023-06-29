@@ -153,6 +153,15 @@
   <data name="Category_Name" xml:space="preserve">
     <value>Name of category</value>
   </data>
+  <data name="Inventory_BookId" xml:space="preserve">
+    <value>Book Id of Inventory</value>
+  </data>
+  <data name="Inventory_Quantity" xml:space="preserve">
+    <value>Quantity of Inventory</value>
+  </data>
+  <data name="Inventory_ReorderThreshold" xml:space="preserve">
+    <value>ReorderThreshold of Inventory</value>
+  </data>
   <data name="Publisher_Address" xml:space="preserve">
     <value>Address of publisher</value>
   </data>

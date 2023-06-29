@@ -169,6 +169,33 @@ namespace BookStore.Domain.Catalog.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Book Id of Inventory.
+        /// </summary>
+        public static string Inventory_BookId {
+            get {
+                return ResourceManager.GetString("Inventory_BookId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity of Inventory.
+        /// </summary>
+        public static string Inventory_Quantity {
+            get {
+                return ResourceManager.GetString("Inventory_Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReorderThreshold of Inventory.
+        /// </summary>
+        public static string Inventory_ReorderThreshold {
+            get {
+                return ResourceManager.GetString("Inventory_ReorderThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address of publisher.
         /// </summary>
         public static string Publisher_Address {

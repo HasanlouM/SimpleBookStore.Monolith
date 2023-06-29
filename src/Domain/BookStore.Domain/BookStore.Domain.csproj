@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Catalog\Models\InventoryAggregate\" />
     <Folder Include="Order\" />
     <Folder Include="UserManagement\" />
   </ItemGroup>
