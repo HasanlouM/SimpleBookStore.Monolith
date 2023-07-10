@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Catalog.Models.BookAggregate;
+using BookStore.Test.Share.TestDoubles;
 
 namespace BookStore.Domain.Test.Unit.Catalog.TestUtilities
 {
@@ -66,7 +67,7 @@ namespace BookStore.Domain.Test.Unit.Catalog.TestUtilities
         public Book Build()
         {
             return new Book(_categoryId, _title, _publisherId, _isbn, _authorId,
-                _price, _publicationDate, _image, _description);
+                _price, _publicationDate, _image, _description, StubUtcClock.Default);
         }
     }
 }

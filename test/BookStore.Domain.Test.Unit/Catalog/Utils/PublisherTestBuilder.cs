@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Catalog.Models.PublisherAggregate;
+using BookStore.Test.Share.TestDoubles;
 
 namespace BookStore.Domain.Test.Unit.Catalog.TestUtilities;
 
@@ -42,6 +43,6 @@ internal class PublisherTestBuilder
 
     public Publisher Build()
     {
-        return new Publisher(_name, _address, _phoneNumber, _email);
+        return new Publisher(_name, _address, _phoneNumber, _email, StubUtcClock.Default);
     }
 }

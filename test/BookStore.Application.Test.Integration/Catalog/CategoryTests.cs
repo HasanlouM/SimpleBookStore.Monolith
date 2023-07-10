@@ -1,5 +1,6 @@
 ﻿using BookStore.Application.Contract.Catalog.CategoryAggregate.Commands;
 using BookStore.Application.Test.Integration.Catalog.Tasks;
+using BookStore.Application.Test.Integration.Catalog.Utils;
 using BookStore.Application.Test.Integration.Utils;
 using FluentAssertions;
 

@@ -1,4 +1,5 @@
 ﻿using BookStore.Domain.Catalog.Models.InventoryAggregate;
+using BookStore.Test.Share.TestDoubles;
 using Common.Domain.Core.Exceptions;
 using FluentAssertions;
 
@@ -12,7 +13,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
             var bookId = 1;
             var quantity = 100;
             var reorderThreshold = 10;
-            var inventory = new Inventory(bookId, quantity, reorderThreshold);
+            var inventory = new Inventory(bookId, quantity, reorderThreshold, StubUtcClock.Default);
 
             inventory.Should().NotBeNull();
             inventory.BookId.Should().Be(1);
@@ -27,7 +28,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
         public void Add_a_book_to_inventory_with_invalid_parameters(
             int bookId, int quantity, int reorderThreshold)
         {
-            var action = () => new Inventory(bookId, quantity, reorderThreshold);
+            var action = () => new Inventory(bookId, quantity, reorderThreshold, StubUtcClock.Default);
 
             action.Should().Throw<NotNullException>();
         }

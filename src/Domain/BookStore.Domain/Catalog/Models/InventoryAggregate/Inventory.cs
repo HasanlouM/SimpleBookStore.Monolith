@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Catalog.Core;
 using Common.Domain;
 using Common.Domain.Core;
+using Common.Domain.Utils;
 
 namespace BookStore.Domain.Catalog.Models.InventoryAggregate
 {
@@ -8,7 +9,7 @@ namespace BookStore.Domain.Catalog.Models.InventoryAggregate
     {
         private Inventory() { }
 
-        public Inventory(int bookId, int quantity, int reorderThreshold)
+        public Inventory(int bookId, int quantity, int reorderThreshold, IClock clock)
         {
             Guard.NotNullOrDefault(bookId, Label.Inventory_BookId);
             Guard.NotNullOrDefault(quantity, Label.Inventory_Quantity);
@@ -17,7 +18,7 @@ namespace BookStore.Domain.Catalog.Models.InventoryAggregate
             BookId = bookId;
             Quantity = quantity;
             ReorderThreshold = reorderThreshold;
-            CreatedAt = DateTime.UtcNow;
+            CreatedAt = clock.Now;
         }
 
         public int BookId { get; private set; }

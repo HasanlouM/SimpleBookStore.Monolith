@@ -4,6 +4,7 @@ using BookStore.Application.Contract.Catalog.BookAggregate.Queries;
 using BookStore.Application.Test.Integration.Utils;
 using BookStore.Persistence.EF;
 using BookStore.Persistence.EF.Catalog.Repositories;
+using BookStore.Test.Share.TestDoubles;
 using Common.Persistence.EF;
 
 namespace BookStore.Application.Test.Integration.Catalog.Tasks;
@@ -26,7 +27,7 @@ internal class DefineBook : ITask<DefineBookCommand, BookQueryModel>
         var authorRepository = new AuthorRepository(_dbContext);
         var publisherRepository = new PublisherRepository(_dbContext);
         var commandHandler = new DefineBookCommandHandler(
-            _unitOfWork, repository, categoryRepository, authorRepository, publisherRepository);
+            _unitOfWork, repository, categoryRepository, authorRepository, publisherRepository, StubUtcClock.Default);
 
         return await commandHandler.HandleAsync(command, CancellationToken.None);
     }

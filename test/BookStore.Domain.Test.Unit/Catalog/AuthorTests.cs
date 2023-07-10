@@ -1,5 +1,6 @@
 ﻿using BookStore.Domain.Catalog.Models.AuthorAggregate;
 using BookStore.Domain.Test.Unit.Catalog.TestUtilities;
+using BookStore.Test.Share.TestDoubles;
 using Common.Domain.Core.Exceptions;
 using FluentAssertions;
 
@@ -10,7 +11,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
         [Fact]
         public void Define_an_author()
         {
-            var author = new Author("Moji", "Hasanlou", "Moji's bio");
+            var author = new Author("Moji", "Hasanlou", "Moji's bio", StubUtcClock.Default);
             author.FirstName.Should().Be("Moji");
             author.LastName.Should().Be("Hasanlou");
             author.Bio.Should().Be("Moji's bio");

@@ -4,6 +4,7 @@ using BookStore.Application.Contract.Catalog.InventoryAggregate.Queries;
 using BookStore.Application.Test.Integration.Utils;
 using BookStore.Persistence.EF;
 using BookStore.Persistence.EF.Catalog.Repositories;
+using BookStore.Test.Share.TestDoubles;
 using Common.Persistence.EF;
 
 namespace BookStore.Application.Test.Integration.Catalog.Tasks;
@@ -23,7 +24,7 @@ internal class AddBookToInventory : ITask<AddBookToInventoryCommand, InventoryQu
     {
         var repository = new InventoryRepository(_dbContext);
         var uow = UnitOfWorkFactory.Create(_dbContext);
-        var commandHandler = new AddBookToInventoryCommandHandler(repository, uow);
+        var commandHandler = new AddBookToInventoryCommandHandler(repository, uow, StubUtcClock.Default);
         return await commandHandler.HandleAsync(command, CancellationToken.None);
     }
 }

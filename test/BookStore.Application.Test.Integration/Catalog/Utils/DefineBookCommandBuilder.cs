@@ -1,7 +1,7 @@
 using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
 using Microsoft.AspNetCore.Http;
 
-namespace BookStore.Application.Test.Integration.Catalog;
+namespace BookStore.Application.Test.Integration.Catalog.Utils;
 
 internal class DefineBookCommandBuilder
 {

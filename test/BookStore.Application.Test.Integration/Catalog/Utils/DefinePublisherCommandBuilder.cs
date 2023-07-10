@@ -1,6 +1,6 @@
 using BookStore.Application.Contract.Catalog.PublisherAggregate.Commands;
 
-namespace BookStore.Application.Test.Integration.Catalog;
+namespace BookStore.Application.Test.Integration.Catalog.Utils;
 
 internal class DefinePublisherCommandBuilder
 {

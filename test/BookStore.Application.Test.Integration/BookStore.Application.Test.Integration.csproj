@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Application\BookStore.Application\BookStore.Application.csproj" />
     <ProjectReference Include="..\..\src\Common\Common.Infrastructure\Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\BookStore.Test.Share\BookStore.Test.Share.csproj" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -48,6 +49,10 @@
 		<Content Include="appsettings.Staging.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Catalog\TestDoubles\" />
 	</ItemGroup>
 
 </Project>

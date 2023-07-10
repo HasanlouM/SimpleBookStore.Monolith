@@ -1,5 +1,5 @@
 using BookStore.Domain.Catalog.Models.CategoryAggregate;
-using BookStore.Domain.Catalog.Models.PublisherAggregate;
+using BookStore.Test.Share.TestDoubles;
 using Common.Domain.Core.Exceptions;
 using FluentAssertions;
 
@@ -11,7 +11,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
         [Fact]
         public void Can_not_define_a_category_without_name()
         {
-            Action action = () => new Category("");
+            Action action = () => new Category("", StubUtcClock.Default);
 
             action
                 .Should()
@@ -21,7 +21,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
         [Fact]
         public void Inactive_a_category()
         {
-            var category = new Category("Software");
+            var category = new Category("Software", StubUtcClock.Default);
             category.Inactivate();
 
             category.Status.Should().Be(CategoryStatus.Inactive);
@@ -30,7 +30,7 @@ namespace BookStore.Domain.Test.Unit.Catalog
         [Fact]
         public void Active_a_category()
         {
-            var category = new Category("Software");
+            var category = new Category("Software", StubUtcClock.Default);
             category.Activate();
 
             category.Status.Should().Be(CategoryStatus.Active);

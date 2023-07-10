@@ -7,6 +7,7 @@ using BookStore.Domain.Catalog.Models.CategoryAggregate;
 using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using Common.Application;
 using Common.Application.Utils;
+using Common.Domain.Utils;
 using Common.Persistence.EF;
 
 namespace BookStore.Application.Catalog.BookAggregate.Commands
@@ -19,19 +20,22 @@ namespace BookStore.Application.Catalog.BookAggregate.Commands
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAuthorRepository _authorRepository;
         private readonly IPublisherRepository _publisherRepository;
+        private readonly IClock _clock;
 
         public DefineBookCommandHandler(
             IUnitOfWork uow,
             IBookRepository repository,
             ICategoryRepository categoryRepository,
             IAuthorRepository authorRepository,
-            IPublisherRepository publisherRepository)
+            IPublisherRepository publisherRepository,
+            IClock clock)
         {
             _uow = uow;
             _repository = repository;
             _categoryRepository = categoryRepository;
             _authorRepository = authorRepository;
             _publisherRepository = publisherRepository;
+            _clock = clock;
         }
 
         public async Task<BookQueryModel> HandleAsync(
@@ -42,7 +46,8 @@ namespace BookStore.Application.Catalog.BookAggregate.Commands
             await GuardAgainstInvalidPublisherId(command.PublisherId, cancellation);
 
             var model = new Book(command.CategoryId, command.Title, command.PublisherId, command.Isbn,
-                command.AuthorId, command.Price, command.PublicationDate, command.Image?.ToByte() ?? null, command.Description);
+                command.AuthorId, command.Price, command.PublicationDate, command.Image?.ToByte() ?? null,
+                command.Description, _clock);
 
             var book = await _repository.Add(model, cancellation);
             await _uow.SaveChanges(cancellation);

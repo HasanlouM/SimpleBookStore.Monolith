@@ -47,14 +47,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Admin.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "buildscript\_build.csproj", "{C53819D1-490C-4550-BEA6-57A27121C5A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Test.Share", "test\BookStore.Test.Share\BookStore.Test.Share.csproj", "{61AC6C95-0723-4E08-A70F-E93D885D33EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C53819D1-490C-4550-BEA6-57A27121C5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C53819D1-490C-4550-BEA6-57A27121C5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B2383BB-E255-4A9B-8466-F50D079ACCED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B2383BB-E255-4A9B-8466-F50D079ACCED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B2383BB-E255-4A9B-8466-F50D079ACCED}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,6 +111,12 @@ Global
 		{7737DE41-16BC-4838-98EA-18B0BD0A3F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7737DE41-16BC-4838-98EA-18B0BD0A3F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7737DE41-16BC-4838-98EA-18B0BD0A3F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53819D1-490C-4550-BEA6-57A27121C5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53819D1-490C-4550-BEA6-57A27121C5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AC6C95-0723-4E08-A70F-E93D885D33EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AC6C95-0723-4E08-A70F-E93D885D33EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AC6C95-0723-4E08-A70F-E93D885D33EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AC6C95-0723-4E08-A70F-E93D885D33EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,6 +141,7 @@ Global
 		{F210DD74-AE94-4FAA-AA6D-A7CDE2C9C5B3} = {42DED337-8043-40EF-AA95-20859916D99E}
 		{EDF0A602-9E95-49DE-8DE1-87EE075645D2} = {42DED337-8043-40EF-AA95-20859916D99E}
 		{7737DE41-16BC-4838-98EA-18B0BD0A3F89} = {95D39681-AEAB-48E4-B836-C470906E6A3B}
+		{61AC6C95-0723-4E08-A70F-E93D885D33EF} = {04A8E8A9-9556-4EAD-AB51-BA623FEC4231}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1757F796-5A76-4F91-8DA3-9F297A955030}

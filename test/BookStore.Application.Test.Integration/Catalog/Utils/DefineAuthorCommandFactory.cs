@@ -1,6 +1,6 @@
 using BookStore.Application.Contract.Catalog.AuthorAggregate.Commands;
 
-namespace BookStore.Application.Test.Integration.Catalog;
+namespace BookStore.Application.Test.Integration.Catalog.Utils;
 
 internal static class DefineAuthorCommandFactory
 {

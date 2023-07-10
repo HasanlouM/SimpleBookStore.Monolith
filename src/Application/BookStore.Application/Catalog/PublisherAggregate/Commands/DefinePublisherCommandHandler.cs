@@ -2,6 +2,7 @@
 using BookStore.Application.Contract.Catalog.PublisherAggregate.Queries;
 using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using Common.Application;
+using Common.Domain.Utils;
 using Common.Persistence.EF;
 
 namespace BookStore.Application.Catalog.PublisherAggregate.Commands
@@ -11,18 +12,22 @@ namespace BookStore.Application.Catalog.PublisherAggregate.Commands
     {
         private readonly IUnitOfWork _uow;
         private readonly IPublisherRepository _repository;
+        private readonly IClock _clock;
 
         public DefinePublisherCommandHandler(
-            IUnitOfWork uow, IPublisherRepository repository)
+            IUnitOfWork uow, 
+            IPublisherRepository repository, 
+            IClock clock)
         {
             _uow = uow;
             _repository = repository;
+            _clock = clock;
         }
 
         public async Task<PublisherQueryModel> HandleAsync(
             DefinePublisherCommand command, CancellationToken cancellation = default)
         {
-            var model = new Publisher(command.Name, command.Address, command.PhoneNumber, command.Email);
+            var model = new Publisher(command.Name, command.Address, command.PhoneNumber, command.Email, _clock);
             var definedPublisher = await _repository.Add(model, cancellation);
             await _uow.SaveChanges(cancellation);
 

@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Catalog.Core;
 using Common.Domain;
 using Common.Domain.Core;
+using Common.Domain.Utils;
 
 namespace BookStore.Domain.Catalog.Models.PublisherAggregate
 {
@@ -8,7 +9,7 @@ namespace BookStore.Domain.Catalog.Models.PublisherAggregate
     {
         private Publisher() { }
 
-        public Publisher(string name, string address, string phoneNumber, string email)
+        public Publisher(string name, string address, string phoneNumber, string email, IClock clock)
         {
             Guard.NotNullOrEmpty(name, Label.Publisher_Name);
             Guard.NotNullOrEmpty(address, Label.Publisher_Address);
@@ -20,7 +21,7 @@ namespace BookStore.Domain.Catalog.Models.PublisherAggregate
             PhoneNumber = phoneNumber;
             Email = email;
             Status = PublisherStatus.Active;
-            CreatedAt = DateTime.UtcNow;
+            CreatedAt = clock.Now;
         }
         public string Name { get; private set; }
         public string Address { get; private set; }

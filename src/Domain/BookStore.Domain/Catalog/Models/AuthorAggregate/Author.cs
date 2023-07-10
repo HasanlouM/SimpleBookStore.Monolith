@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BookStore.Domain.Catalog.Core;
 using Common.Domain;
 using Common.Domain.Core;
+using Common.Domain.Utils;
 
 namespace BookStore.Domain.Catalog.Models.AuthorAggregate
 {
@@ -13,7 +14,7 @@ namespace BookStore.Domain.Catalog.Models.AuthorAggregate
     {
         private Author() { }
 
-        public Author(string firstName, string lastName, string bio)
+        public Author(string firstName, string lastName, string bio, IClock clock)
         {
             Guard.NotNullOrEmpty(firstName, Label.Author_FirstName);
             Guard.NotNullOrEmpty(lastName, Label.Author_LastName);
@@ -22,7 +23,7 @@ namespace BookStore.Domain.Catalog.Models.AuthorAggregate
             LastName = lastName;
             Bio = bio;
             Status = AuthorStatus.Active;
-            CreatedAt = DateTime.UtcNow;
+            CreatedAt = clock.Now;
         }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }

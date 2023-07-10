@@ -1,6 +1,7 @@
 ﻿using BookStore.Domain.Catalog.Core;
 using Common.Domain;
 using Common.Domain.Core;
+using Common.Domain.Utils;
 
 namespace BookStore.Domain.Catalog.Models.BookAggregate
 {
@@ -9,7 +10,7 @@ namespace BookStore.Domain.Catalog.Models.BookAggregate
         private Book() { }
 
         public Book(int categoryId, string title, int publisherId, string isbn, int authorId,
-            decimal price, DateOnly publicationDate, byte[] image, string description)
+            decimal price, DateOnly publicationDate, byte[] image, string description, IClock clock)
         {
             Guard.NotNullOrDefault(categoryId, Label.Book_Category);
             Guard.NotNullOrEmpty(title, Label.Book_Title);
@@ -30,7 +31,7 @@ namespace BookStore.Domain.Catalog.Models.BookAggregate
             Image = image;
             Description = description;
             Status = BookStatus.Active;
-            CreatedAt = DateTime.UtcNow;
+            CreatedAt = clock.Now;
         }
 
         public int CategoryId { get; private set; }

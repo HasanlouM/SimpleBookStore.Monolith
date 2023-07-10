@@ -2,9 +2,12 @@
 using BookStore.Admin.Api.Controllers;
 using BookStore.Application.Catalog.BookAggregate.Commands;
 using BookStore.Application.Contract.Catalog.BookAggregate.Commands;
+using BookStore.Persistence.EF;
 using Common.Application;
+using Common.Persistence.EF;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using Common.Domain.Utils;
 using Module = Autofac.Module;
 
 namespace BookStore.Config
@@ -20,6 +23,10 @@ namespace BookStore.Config
 
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<Clock>()
+                .As<IClock>()
+                .SingleInstance();
+
             RegisterHandlers(builder);
         }
 
