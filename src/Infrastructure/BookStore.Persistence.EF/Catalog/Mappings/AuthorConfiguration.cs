@@ -8,7 +8,7 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 {
     public void Configure(EntityTypeBuilder<Author> builder)
     {
-        builder.ToTable("Authors", Constants.Schema.Catalog)
+        builder.ToTable("Author", Constants.Schema.Catalog)
             .HasKey(b => b.Id);
 
         builder.Property(b => b.Id)
@@ -29,6 +29,8 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
         builder.Property(a => a.Status)
             .IsRequired()
             .HasDefaultValue(AuthorStatus.Active);
+
+        builder.HasIndex(c => new { c.FirstName, c.LastName }).IsUnique();
 
         builder.Ignore(c => c.FullName);
         builder.Ignore(c => c.UncommittedEvents);

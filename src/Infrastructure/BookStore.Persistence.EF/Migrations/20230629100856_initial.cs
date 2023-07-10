@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookStore.Persistence.EF.Migrations
 {
     /// <inheritdoc />
-    public partial class createtablesofcatalog : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace BookStore.Persistence.EF.Migrations
                 name: "ctlg");
 
             migrationBuilder.CreateTable(
-                name: "Authors",
+                name: "Author",
                 schema: "ctlg",
                 columns: table => new
                 {
@@ -31,11 +31,11 @@ namespace BookStore.Persistence.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Authors", x => x.Id);
+                    table.PrimaryKey("PK_Author", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
                 schema: "ctlg",
                 columns: table => new
                 {
@@ -49,11 +49,11 @@ namespace BookStore.Persistence.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Publishers",
+                name: "Publisher",
                 schema: "ctlg",
                 columns: table => new
                 {
@@ -70,11 +70,11 @@ namespace BookStore.Persistence.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Publishers", x => x.Id);
+                    table.PrimaryKey("PK_Publisher", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Books",
+                name: "Book",
                 schema: "ctlg",
                 columns: table => new
                 {
@@ -96,63 +96,120 @@ namespace BookStore.Persistence.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.PrimaryKey("PK_Book", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Books_Authors_AuthorId",
+                        name: "FK_Book_Author_AuthorId",
                         column: x => x.AuthorId,
                         principalSchema: "ctlg",
-                        principalTable: "Authors",
+                        principalTable: "Author",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Books_Categories_CategoryId",
+                        name: "FK_Book_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalSchema: "ctlg",
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Books_Publishers_PublisherId",
+                        name: "FK_Book_Publisher_PublisherId",
                         column: x => x.PublisherId,
                         principalSchema: "ctlg",
-                        principalTable: "Publishers",
+                        principalTable: "Publisher",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Inventory",
+                schema: "ctlg",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    ReorderThreshold = table.Column<int>(type: "int", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Inventory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Inventory_Book_BookId",
+                        column: x => x.BookId,
+                        principalSchema: "ctlg",
+                        principalTable: "Book",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_AuthorId",
+                name: "IX_Author_FirstName_LastName",
                 schema: "ctlg",
-                table: "Books",
+                table: "Author",
+                columns: new[] { "FirstName", "LastName" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Book_AuthorId",
+                schema: "ctlg",
+                table: "Book",
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_CategoryId",
+                name: "IX_Book_CategoryId",
                 schema: "ctlg",
-                table: "Books",
+                table: "Book",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_PublisherId",
+                name: "IX_Book_PublisherId",
                 schema: "ctlg",
-                table: "Books",
+                table: "Book",
                 column: "PublisherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Category_Name",
+                schema: "ctlg",
+                table: "Category",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inventory_BookId",
+                schema: "ctlg",
+                table: "Inventory",
+                column: "BookId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Publisher_Name",
+                schema: "ctlg",
+                table: "Publisher",
+                column: "Name",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Books",
+                name: "Inventory",
                 schema: "ctlg");
 
             migrationBuilder.DropTable(
-                name: "Authors",
+                name: "Book",
                 schema: "ctlg");
 
             migrationBuilder.DropTable(
-                name: "Categories",
+                name: "Author",
                 schema: "ctlg");
 
             migrationBuilder.DropTable(
-                name: "Publishers",
+                name: "Category",
+                schema: "ctlg");
+
+            migrationBuilder.DropTable(
+                name: "Publisher",
                 schema: "ctlg");
         }
     }

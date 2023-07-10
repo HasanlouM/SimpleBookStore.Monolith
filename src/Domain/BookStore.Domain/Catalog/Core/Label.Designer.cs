@@ -88,6 +88,15 @@ namespace BookStore.Domain.Catalog.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CategoryId of book.
+        /// </summary>
+        public static string Book_Category {
+            get {
+                return ResourceManager.GetString("Book_Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image of book.
         /// </summary>
         public static string Book_Image {
@@ -156,6 +165,33 @@ namespace BookStore.Domain.Catalog.Core {
         public static string Category_Name {
             get {
                 return ResourceManager.GetString("Category_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Book Id of Inventory.
+        /// </summary>
+        public static string Inventory_BookId {
+            get {
+                return ResourceManager.GetString("Inventory_BookId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity of Inventory.
+        /// </summary>
+        public static string Inventory_Quantity {
+            get {
+                return ResourceManager.GetString("Inventory_Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReorderThreshold of Inventory.
+        /// </summary>
+        public static string Inventory_ReorderThreshold {
+            get {
+                return ResourceManager.GetString("Inventory_ReorderThreshold", resourceCulture);
             }
         }
         

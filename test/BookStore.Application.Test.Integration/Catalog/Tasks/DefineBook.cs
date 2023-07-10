@@ -22,7 +22,12 @@ internal class DefineBook : ITask<DefineBookCommand, BookQueryModel>
     public async Task<BookQueryModel> Perform(DefineBookCommand command)
     {
         var repository = new BookRepository(_dbContext);
-        var commandHandler = new DefineBookCommandHandler(_unitOfWork, repository);
+        var categoryRepository = new CategoryRepository(_dbContext);
+        var authorRepository = new AuthorRepository(_dbContext);
+        var publisherRepository = new PublisherRepository(_dbContext);
+        var commandHandler = new DefineBookCommandHandler(
+            _unitOfWork, repository, categoryRepository, authorRepository, publisherRepository);
+
         return await commandHandler.HandleAsync(command, CancellationToken.None);
     }
 }

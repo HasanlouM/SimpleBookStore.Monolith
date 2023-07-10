@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Persistence.EF.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20230618131917_create_tables_of_catalog")]
-    partial class createtablesofcatalog
+    [Migration("20230629100856_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,10 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", "ctlg");
+                    b.HasIndex("FirstName", "LastName")
+                        .IsUnique();
+
+                    b.ToTable("Author", "ctlg");
                 });
 
             modelBuilder.Entity("BookStore.Domain.Catalog.Models.BookAggregate.Book", b =>
@@ -128,7 +131,7 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", "ctlg");
+                    b.ToTable("Book", "ctlg");
                 });
 
             modelBuilder.Entity("BookStore.Domain.Catalog.Models.CategoryAggregate.Category", b =>
@@ -158,7 +161,44 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", "ctlg");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Category", "ctlg");
+                });
+
+            modelBuilder.Entity("BookStore.Domain.Catalog.Models.InventoryAggregate.Inventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReorderThreshold")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .IsUnique();
+
+                    b.ToTable("Inventory", "ctlg");
                 });
 
             modelBuilder.Entity("BookStore.Domain.Catalog.Models.PublisherAggregate.Publisher", b =>
@@ -203,7 +243,10 @@ namespace BookStore.Persistence.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers", "ctlg");
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Publisher", "ctlg");
                 });
 
             modelBuilder.Entity("BookStore.Domain.Catalog.Models.BookAggregate.Book", b =>
@@ -223,6 +266,15 @@ namespace BookStore.Persistence.EF.Migrations
                     b.HasOne("BookStore.Domain.Catalog.Models.PublisherAggregate.Publisher", null)
                         .WithMany()
                         .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BookStore.Domain.Catalog.Models.InventoryAggregate.Inventory", b =>
+                {
+                    b.HasOne("BookStore.Domain.Catalog.Models.BookAggregate.Book", null)
+                        .WithMany()
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });

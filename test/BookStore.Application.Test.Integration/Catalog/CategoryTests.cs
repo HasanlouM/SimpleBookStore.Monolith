@@ -10,10 +10,7 @@ namespace BookStore.Application.Test.Integration.Catalog
         [Fact]
         public async Task Define_a_category()
         {
-            var command = new DefineCategoryCommand
-            {
-                Name = "test"
-            };
+            var command = DefineCategoryCommandFactory.Create();
             var category = await new DefineCategory(DbContext).Perform(command);
 
             // To make sure data fetch from database not from memory

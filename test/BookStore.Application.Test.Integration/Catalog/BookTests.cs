@@ -1,9 +1,5 @@
-using BookStore.Application.Contract.Catalog.AuthorAggregate.Commands;
-using BookStore.Application.Contract.Catalog.CategoryAggregate.Commands;
-using BookStore.Application.Contract.Catalog.PublisherAggregate.Commands;
 using BookStore.Application.Test.Integration.Catalog.Tasks;
 using BookStore.Application.Test.Integration.Utils;
-using Common.Persistence.EF;
 using FluentAssertions;
 
 namespace BookStore.Application.Test.Integration.Catalog
@@ -13,26 +9,13 @@ namespace BookStore.Application.Test.Integration.Catalog
         [Fact]
         public async Task Define_a_book()
         {
-            var categoryCommand = new DefineCategoryCommand
-            {
-                Name = "test"
-            };
+            var categoryCommand = DefineCategoryCommandFactory.Create();
             var category = await new DefineCategory(DbContext).Perform(categoryCommand);
 
-            var authorCommand = new DefineAuthorCommand
-            {
-                FirstName = "name",
-                LastName = "family"
-            };
+            var authorCommand = DefineAuthorCommandFactory.Create(); ;
             var author = await new DefineAuthor(DbContext).Perform(authorCommand);
 
-            var publisherCommand = new DefinePublisherCommand
-            {
-                Name = "name",
-                Address = "family",
-                PhoneNumber = "09355082980",
-                Email = "publisher@gmail.com",
-            };
+            var publisherCommand = DefinePublisherCommandBuilder.New().Build();
             var publisher = await new DefinePublisher(DbContext).Perform(publisherCommand);
 
             var command = DefineBookCommandBuilder
@@ -54,6 +37,84 @@ namespace BookStore.Application.Test.Integration.Catalog
             actualBook.Isbn.Should().Be(command.Isbn);
             actualBook.Price.Should().Be(command.Price);
             actualBook.PublicationDate.Should().Be(command.PublicationDate);
+            actualBook.Author.Should().Be(author.FullName);
+            actualBook.Category.Should().Be(category.Name);
+            actualBook.Publisher.Should().Be(publisher.Name);
+        }
+
+        [Fact]
+        public async Task Define_a_book_with_invalid_category()
+        {
+            var authorCommand = DefineAuthorCommandFactory.Create(); ;
+            var author = await new DefineAuthor(DbContext).Perform(authorCommand);
+
+            var publisherCommand = DefinePublisherCommandBuilder.New().Build();
+            var publisher = await new DefinePublisher(DbContext).Perform(publisherCommand);
+
+            var undefinedCategoryId = int.MaxValue;
+
+            var command = DefineBookCommandBuilder
+                .New()
+                .WithCategory(undefinedCategoryId)
+                .WithAuthor(author.Id)
+                .WithPublisher(publisher.Id)
+                .Build();
+
+            var func = () => new DefineBook(DbContext).Perform(command);
+
+            DbContext.DetachAllEntities();
+
+            await func.Should().ThrowAsync<InvalidProgramException>();
+        }
+
+        [Fact]
+        public async Task Define_a_book_with_invalid_author()
+        {
+            var categoryCommand = DefineCategoryCommandFactory.Create();
+            var category = await new DefineCategory(DbContext).Perform(categoryCommand);
+
+            var publisherCommand = DefinePublisherCommandBuilder.New().Build();
+            var publisher = await new DefinePublisher(DbContext).Perform(publisherCommand);
+
+            var undefinedAuthorId = int.MaxValue;
+
+            var command = DefineBookCommandBuilder
+                .New()
+                .WithCategory(category.Id)
+                .WithAuthor(undefinedAuthorId)
+                .WithPublisher(publisher.Id)
+                .Build();
+
+            var func = () => new DefineBook(DbContext).Perform(command);
+
+            DbContext.DetachAllEntities();
+
+            await func.Should().ThrowAsync<InvalidProgramException>();
+        }
+
+        [Fact]
+        public async Task Define_a_book_with_invalid_publisher()
+        {
+            var categoryCommand = DefineCategoryCommandFactory.Create();
+            var category = await new DefineCategory(DbContext).Perform(categoryCommand);
+
+            var authorCommand = DefineAuthorCommandFactory.Create(); ;
+            var author = await new DefineAuthor(DbContext).Perform(authorCommand);
+
+            var undefinedPublisher = int.MaxValue;
+
+            var command = DefineBookCommandBuilder
+                .New()
+                .WithCategory(category.Id)
+                .WithAuthor(author.Id)
+                .WithPublisher(undefinedPublisher)
+                .Build();
+
+            var func = () => new DefineBook(DbContext).Perform(command);
+
+            DbContext.DetachAllEntities();
+
+            await func.Should().ThrowAsync<InvalidProgramException>();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BookStore.Domain.Catalog.Models.BookAggregate
         public Book(int categoryId, string title, int publisherId, string isbn, int authorId,
             decimal price, DateOnly publicationDate, byte[] image, string description)
         {
-            Guard.NotNullOrDefault(categoryId, Label.Category);
+            Guard.NotNullOrDefault(categoryId, Label.Book_Category);
             Guard.NotNullOrEmpty(title, Label.Book_Title);
             Guard.NotNullOrDefault(authorId, Label.Book_Author);
             Guard.NotNullOrDefault(publisherId, Label.Book_Publisher);
