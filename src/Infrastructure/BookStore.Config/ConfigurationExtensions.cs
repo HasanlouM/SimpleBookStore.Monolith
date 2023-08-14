@@ -10,4 +10,9 @@ public static class ConfigurationExtensions
     {
         return builder.UseMiddleware<ExceptionMiddleware>();
     }
+    public static IApplicationBuilder UseDbSandboxMiddleware(
+        this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<DbSandBoxMiddleware>();
+    }
 }

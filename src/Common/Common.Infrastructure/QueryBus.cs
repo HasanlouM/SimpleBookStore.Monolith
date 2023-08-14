@@ -12,14 +12,14 @@ namespace Common.Infrastructure
             _scope = scope;
         }
 
-        public async Task<TResult> Dispatch<TQuery, TResult>(TQuery query)
+        public async Task<TResult> Dispatch<TQuery, TResult>(TQuery query, CancellationToken token)
         {
             var handlerType = typeof(IQueryHandler<,>)
                 .MakeGenericType(query.GetType(), typeof(TResult));
 
             dynamic handler = _scope.Resolve(handlerType);
 
-            return await handler.HandleAsync((dynamic)query, CancellationToken.None);
+            return await handler.HandleAsync((dynamic)query, token);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BookStore.Admin.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces("application/json")]
         public async Task<ActionResult<CategoryQueryModel>> Get(
-            [FromRoute] int id)
+            [FromRoute] int id, CancellationToken token)
         {
             var query = new GetCategoryByIdQuery
             {
@@ -29,7 +29,7 @@ namespace BookStore.Admin.Api.Controllers
             };
 
             var category =
-                await _bus.Dispatch<GetCategoryByIdQuery, CategoryQueryModel?>(query);
+                await _bus.Dispatch<GetCategoryByIdQuery, CategoryQueryModel?>(query, token);
 
             return Ok(category);
         }

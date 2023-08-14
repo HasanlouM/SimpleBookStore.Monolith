@@ -35,7 +35,7 @@ namespace BookStore.Admin.Api.Controllers
                 return Fail(StatusCodes.Status400BadRequest, validationResult.ToString());
             }
 
-            var book = await _bus.Dispatch<DefineBookCommand, BookQueryModel>(command);
+            var book = await _bus.Dispatch<DefineBookCommand, BookQueryModel>(command, cancellation);
 
             if (book is null)
             {

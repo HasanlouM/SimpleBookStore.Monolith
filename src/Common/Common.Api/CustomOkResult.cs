@@ -5,7 +5,16 @@ namespace Common.Api;
 
 public class CustomOkResult : OkResult
 {
-    private const string Message = "Operation completed successfully";
+    private readonly string _message = "Operation completed successfully";
+
+    public CustomOkResult()
+    {
+
+    }
+    public CustomOkResult(string message)
+    {
+        _message = message;
+    }
 
     public override void ExecuteResult(ActionContext context)
     {
@@ -14,7 +23,7 @@ public class CustomOkResult : OkResult
             throw new ArgumentNullException(nameof(context));
         }
 
-        var rsp = ApiResponse.Success(Message);
+        var rsp = ApiResponse.Success(_message);
         context.HttpContext.Response.StatusCode = StatusCode;
         context.HttpContext.Response.WriteAsync(rsp.ToString());
     }

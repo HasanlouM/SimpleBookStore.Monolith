@@ -21,13 +21,13 @@ public class BooksQueryController : MainController
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [Produces("application/json")]
     public async Task<ActionResult<BookQueryModel>> Get(
-        [FromRoute] int id)
+        [FromRoute] int id, CancellationToken cancellation)
     {
         var query = new GetBookByIdQuery
         {
             Id = id
         };
-        var book = await _bus.Dispatch<GetBookByIdQuery, BookQueryModel>(query);
+        var book = await _bus.Dispatch<GetBookByIdQuery, BookQueryModel>(query, cancellation);
 
         return Ok(book);
     }
@@ -38,10 +38,10 @@ public class BooksQueryController : MainController
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [Produces("application/json")]
     public async Task<ActionResult<IEnumerable<BookQueryModel>>> GetAll(
-        [FromQuery] GetAllBookQuery query)
+        [FromQuery] GetAllBookQuery query, CancellationToken cancellation)
     {
         var books = 
-            await _bus.Dispatch<GetAllBookQuery, IEnumerable<BookQueryModel>>(query);
+            await _bus.Dispatch<GetAllBookQuery, IEnumerable<BookQueryModel>>(query, cancellation);
 
         return Ok(books);
     }

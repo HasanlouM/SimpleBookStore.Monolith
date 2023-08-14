@@ -5,13 +5,7 @@ namespace BookStore.Persistence.EF;
 
 public static class DbContextFactory
 {
-    //public static BookStoreDbContext Create(DbConnection connection)
-    //{
-    //    var builder = new DbContextOptionsBuilder<BaseDbContext>();
-    //    builder.UseSqlServer(connection);
-
-    //    return new BookStoreDbContext(builder.Options);
-    //}
+    private static string _connectionString;
 
     public static BookStoreDbContext Create(string connectionString)
     {
@@ -19,5 +13,19 @@ public static class DbContextFactory
         builder.UseSqlServer(connectionString);
 
         return new BookStoreDbContext(builder.Options);
+    }
+    public static BookStoreDbContext Create()
+    {
+        if (string.IsNullOrEmpty(_connectionString))
+        {
+            throw new NotImplementedException();
+        }
+
+        return Create(_connectionString);
+    }
+
+    public static void SetConnectionString(string connectionString)
+    {
+        _connectionString = connectionString;
     }
 }

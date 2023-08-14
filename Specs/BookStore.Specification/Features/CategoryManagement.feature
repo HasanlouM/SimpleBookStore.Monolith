@@ -3,7 +3,7 @@
 	As a store manager
 	I want to define a category
 
-@tag1
+@databaseSandbox
 Scenario: Difining a gategory
 	Given I have entered as a store manager
 	When I define a category of 'Software'

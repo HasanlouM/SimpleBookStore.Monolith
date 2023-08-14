@@ -84,11 +84,11 @@ namespace BookStore.Test.Specs.Features
         [Xunit.SkippableFactAttribute(DisplayName="Difining a gategory")]
         [Xunit.TraitAttribute("FeatureTitle", "Managing the category")]
         [Xunit.TraitAttribute("Description", "Difining a gategory")]
-        [Xunit.TraitAttribute("Category", "tag1")]
+        [Xunit.TraitAttribute("Category", "databaseSandbox")]
         public void DifiningAGategory()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag1"};
+                    "databaseSandbox"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Difining a gategory", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7

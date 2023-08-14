@@ -44,6 +44,7 @@ var app = builder.Build();
 
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -63,6 +64,7 @@ else
     app.UseHsts();
 }
 
+app.UseDbSandboxMiddleware();
 app.UseExceptionMiddleware();
 
 app.UseCors(x => x

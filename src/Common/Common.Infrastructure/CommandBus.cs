@@ -12,7 +12,7 @@ namespace Common.Infrastructure
             _scope = scope;
         }
 
-        public async Task<TResult> Dispatch<TCommand, TResult>(TCommand command)
+        public async Task<TResult> Dispatch<TCommand, TResult>(TCommand command, CancellationToken token)
             where TCommand : ICommand
         {
             var handlerType = typeof(ICommandHandler<,>)
@@ -20,13 +20,13 @@ namespace Common.Infrastructure
 
             dynamic handler = _scope.Resolve(handlerType);
 
-            return await handler.HandleAsync((dynamic)command, CancellationToken.None);
+            return await handler.HandleAsync((dynamic)command, token);
         }
 
-        public async Task Dispatch<T>(T command) where T : ICommand
+        public async Task Dispatch<T>(T command, CancellationToken token) where T : ICommand
         {
             var handler = _scope.Resolve<ICommandHandler<T>>();
-            await handler.HandleAsync(command, CancellationToken.None);
+            await handler.HandleAsync(command, token);
         }
     }
 }

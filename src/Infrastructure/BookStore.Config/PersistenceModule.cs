@@ -6,6 +6,7 @@ using BookStore.Domain.Catalog.Models.PublisherAggregate;
 using BookStore.Persistence.EF;
 using BookStore.Persistence.EF.Catalog.Repositories;
 using Common.Persistence.EF;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace BookStore.Config
@@ -29,7 +30,7 @@ namespace BookStore.Config
 
         private BookStoreDbContext CreateDbContext(IComponentContext arg)
         {
-            return DbContextFactory.Create(_configuration.GetConnectionString("Default"));
+            return DbContextFactory.Create();
         }
 
         private static void RegisterCatalogRepositories(ContainerBuilder builder)
